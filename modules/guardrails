@@ -1,0 +1,7 @@
+Word Count Enforcement: Verify each section summary is within 75–150 words.
+
+Overall Summary Limit: Ensure the combined summary is under 500 words.
+
+Hallucination Check: Cross-reference all claims with the original text to prevent invented content.
+
+Section Integrity: Flag deviations from original section order or missing sections.
