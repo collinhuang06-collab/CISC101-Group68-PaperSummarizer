@@ -1,7 +1,18 @@
-Word Count Enforcement: Verify each section summary is within 75–150 words.
+# Module 3: Guardrails
 
-Overall Summary Limit: Ensure the combined summary is under 500 words.
+- **Change Log:**
+  - 2025-11-24: Added Strict Evidence Mode and standardized section warnings.
 
-Hallucination Check: Cross-reference all claims with the original text to prevent invented content.
+## Enhanced Guardrails
 
-Section Integrity: Flag deviations from original section order or missing sections.
+### A. Strict Evidence Mode
+- Check the variable `evidence_mode` (can be "strict" or "normal").
+- **If `evidence_mode == "strict"`:**
+  - Scrutinize every claim in summaries from Module 2.
+  - Remove any claim not directly supported by the original section text.
+  - If a section lacks sufficient detail, output: "**Strict Mode:** The source text does not provide enough detail to summarize this section under strict evidence rules."
+
+### B. Standardized Section Warnings
+- **For missing or empty sections:** Output: "**Warning:** Section '[Section Name]' skipped: no usable text was provided."
+- **For sections with < 50 words in source:** Output: "**Note:** Section '[Section Name]' source text is very short: summary may be incomplete."
+- **For summary length violations:** Output: "**Length Error:** Section '[Section Name]' summary must be 75-150 words."

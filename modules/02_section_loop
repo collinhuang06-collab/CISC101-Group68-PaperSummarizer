@@ -1,7 +1,17 @@
-Iteration: Process each section sequentially in preserved order.
+# Module 2: Section Loop
 
-Summary Generation: Create a summary between 75–150 words for each section.
+- **Change Log:**
+  - 2025-11-24: Added support for 'short' and 'detailed' summary levels.
 
-Terminology Consistency: Apply consistent technical terms across all sections.
-
-Context Awareness: Ensure summaries reflect only the content of the given section.
+## Logic
+For each `section` in the normalized list from Module 1:
+1. Extract the full text of the section.
+2. Check the variable `summary_level` (provided by the user, defaults to "short").
+3. **If `summary_level == "short"`:**
+   - Generate a compact summary of 1-2 sentences (approximately 75 words).
+   - Focus on the core purpose or finding of the section.
+4. **If `summary_level == "detailed"`:**
+   - Generate a paragraph summary (100-150 words).
+   - Extract 3-5 key points from the section as a bulleted list.
+   - Ensure the total remains within the 150-word constraint.
+5. Pass the generated summary to Module 3 (Guardrails) for verification.
